@@ -380,6 +380,36 @@ class GuildPlayer(
         if (skipCurrentTrack) skip()
     }
 
+//    suspend fun replayLastTrackForMemberPerms(context: CommandContext, trackIds: Collection<Long>, successMessage: String) {
+//        val pair = canMemberSkipTracks(context.member, trackIds)
+//
+//        if (pair.left) {
+//            context.reply(successMessage)
+//            replayLastTrack()
+//        } else {
+//            context.replyWithName(pair.right)
+//        }
+//    }
+//
+//    fun replayLastTrack() {
+//        var replayLastTrack = false
+//
+//        val toRemove = ArrayList<Long>()
+//        val playing = if (player.playingTrack != null) context else null
+//        for (trackId in trackIds) {
+//            if (playing != null && trackId == playing.trackId) {
+//                //Should be skipped last, in respect to PlayerEventListener
+//                replayLastTrack = true
+//            } else {
+//                toRemove.add(trackId)
+//            }
+//        }
+//
+//        audioTrackProvider.removeAllById(toRemove)
+//
+//        if (replayLastTrack) replay()
+//    }
+
     override fun onTrackStart(player: AudioPlayer?, track: AudioTrack?) {
         voteSkipCleanup()
         super.onTrackStart(player, track)
