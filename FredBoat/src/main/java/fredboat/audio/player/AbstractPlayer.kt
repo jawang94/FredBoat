@@ -214,6 +214,14 @@ abstract class AbstractPlayer internal constructor(
         }
     }
 
+    //request the latest track from the history queue and start playing it
+    fun retrieveAndPlay(track: AudioTrackContext) {
+        log.trace("retrieveAndPlay()")
+
+        audioTrackProvider.add(track)
+        loadAndPlay()
+    }
+
     //request the next track from the track provider and start playing it
     private fun loadAndPlay() {
         log.trace("loadAndPlay()")

@@ -39,7 +39,7 @@ class ReplayCommand : IMusicCommand, ICommandRestricted {
         }
 
         if (!context.hasArguments()) {
-            skipNext(player, context)
+            replayLast(player, context)
         } else {
             HelpCommand.sendFormattedCommandHelp(context)
         }
